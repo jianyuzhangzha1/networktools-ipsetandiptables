@@ -9,3 +9,8 @@ contains three parts:
 
 3 nginx configure files, expose the portal to the main site's url, make it can be accessed by domain.
 
+update 20260320, for ipset and iptables are outaged, move to nftables and ip filter.
+  
+sudo nft add table ip filter
+sudo nft 'add set ip filter brook { type ipv4_addr; flags timeout, dynamic; }'
+sudo nft add element ip filter brook { 1.2.3.4 timeout 600s }
