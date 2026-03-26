@@ -1,0 +1,8 @@
+sudo nft flush ruleset
+sudo nft -a list ruleset
+sudo nft delete set inet brook brook_v6
+sudo nft add element inet brook brook_v6 { 2001:db8::/64 timeout 1h }
+
+sudo nft delete rule inet brook PREROUTING handle 5
+
+# 
